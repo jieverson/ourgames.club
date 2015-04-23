@@ -1,7 +1,30 @@
-﻿@section SPAViews {
-    @Html.Partial("_Home")
-}
-@section Scripts{
-    @Scripts.Render("~/bundles/knockout")
+﻿<!DOCTYPE html>
+<html ng-app="OurGamesClub">
+<head>
+    <base href="/">
+    <meta charset="utf-8" />
+    <title>Our Games Club</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    @Styles.Render("~/Content/css")
+</head>
+
+<body ng-controller="Global">
+    <header class="navbar navbar-default navbar-fixed-top">
+        @Html.Partial("_NavBar")
+    </header>
+
+    <main>
+        <div class="container-fluid">
+            <ng-view></ng-view>
+        </div>
+    </main>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/angular")
     @Scripts.Render("~/bundles/app")
-}
+    @Scripts.Render("~/bundles/components")
+</body>
+</html>

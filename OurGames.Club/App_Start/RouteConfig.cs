@@ -14,9 +14,21 @@ namespace OurGames.Club
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                name: "API",
+                url: "api/{controller}/{id}",
+                defaults: new { id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "View",
+                url: "view/{folder}/{file}",
+                defaults: new { controller = "View", action = "Template", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "Angular",
+                url: "{*url}",
+                defaults: new { controller = "Home", action = "Index" }
             );
         }
     }
